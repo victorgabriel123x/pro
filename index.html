@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Casa Karina e Tiago | Projeto arquitetônico e estrutural em 3D</title>
+<meta name="description" content="A casa de Karina e Tiago em três dimensões: projeto arquitetônico da arquiteta Thayanne Meireles e projeto estrutural do engenheiro Valadares, navegáveis em visualizadores IFC interativos.">
+<meta name="author" content="Valadares">
+<meta name="theme-color" content="#14120f">
+<link rel="canonical" href="./">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Casa Karina e Tiago">
+<meta property="og:description" content="Do sonho ao projeto, do projeto à estrutura. Navegue pela casa em 3D.">
+<meta property="og:image" content="./assets/img/render-01.jpg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2314120f'/%3E%3Ctext x='16' y='23' font-family='Didot,Georgia,serif' font-size='18' fill='%23c9a66b' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=IBM+Plex+Mono:wght@300;400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+<link rel="preload" as="image" href="./assets/img/render-01.jpg"
+      imagesrcset="./assets/img/render-01-sm.jpg 900w, ./assets/img/render-01-md.jpg 1200w, ./assets/img/render-01.jpg 1596w"
+      imagesizes="100vw" fetchpriority="high">
+<link rel="stylesheet" href="./assets/css/site.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Casa Karina e Tiago",
+  "description": "Residência unifamiliar de dois pavimentos apresentada em modelos IFC arquitetônico e estrutural navegáveis em 3D",
+  "inLanguage": "pt-BR",
+  "creator": [
+    { "@type": "Person", "name": "Thayanne Meireles", "jobTitle": "Arquiteta" },
+    { "@type": "Person", "name": "Valadares", "jobTitle": "Engenheiro projetista estrutural" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#sonho">Ir para o conteúdo</a>
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<!-- Trilho de cotas: os níveis reais do projeto -->
+<aside class="rail" id="rail" aria-hidden="true">
+  <div class="rail__line"></div>
+  <div class="rail__ticks" id="railTicks"></div>
+  <div class="rail__cursor" id="railCursor" style="top:0"></div>
+</aside>
+
+<header class="site-head" id="head">
+  <a class="brand" href="#inicio" aria-label="Casa Karina e Tiago, início">
+    <span class="brand__mark">K<em>&amp;</em>T</span>
+    <span class="brand__sub">Residência unifamiliar</span>
+  </a>
+
+  <nav class="nav" id="nav" aria-label="Navegação principal">
+    <a href="#sonho">O sonho</a>
+    <a href="#plantas">A casa</a>
+    <a href="#arquitetura">Arquitetura</a>
+    <a href="#estrutura">Estrutura</a>
+    <a href="#equipe">Equipe</a>
+  </nav>
+
+  <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+    <i></i><i></i>
+  </button>
+</header>
+
+<nav class="menu" id="menu" aria-label="Menu">
+  <button class="menu__close" id="menuClose" aria-label="Fechar menu">&times;</button>
+  <a href="#sonho">O sonho <small>01</small></a>
+  <a href="#plantas">A casa <small>02</small></a>
+  <a href="#arquitetura">Arquitetura <small>03</small></a>
+  <a href="#estrutura">Estrutura <small>04</small></a>
+  <a href="#equipe">Equipe <small>05</small></a>
+</nav>
+
+<main>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="inicio">
+  <div class="hero__media">
+    <img src="./assets/img/render-01.jpg"
+         srcset="./assets/img/render-01-sm.jpg 900w, ./assets/img/render-01-md.jpg 1200w, ./assets/img/render-01.jpg 1596w"
+         sizes="100vw"
+         alt="Fachada da casa de Karina e Tiago ao entardecer, com volumes brancos, esquadrias escuras e luz quente saindo das aberturas"
+         width="1596" height="986" fetchpriority="high" id="heroImg">
+  </div>
+
+  <div class="hero__top">
+    <span class="mono">Projeto executivo</span>
+    <span class="mono">Modelo IFC navegável</span>
+  </div>
+
+  <h1 class="hero__title">
+    <span class="row"><span>Karina</span></span>
+    <span class="row"><span><em>e</em> Tiago</span></span>
+  </h1>
+
+  <div class="hero__foot">
+    <p class="hero__desc">Uma casa que começou como conversa, virou desenho e agora tem estrutura. Role a página para percorrer os três estados do mesmo sonho</p>
+    <span class="hero__cue"><i></i> Comece por aqui</span>
+  </div>
+</section>
+
+<!-- ================= O SONHO ================= -->
+<section class="section" id="sonho" data-rail="0">
+  <div class="wrap grid">
+    <div style="grid-column:1/-1">
+      <p class="eyebrow">Capítulo um</p>
+      <h2 class="dream__quote">Toda casa começa muito antes<br>do primeiro <em>traço</em></h2>
+    </div>
+
+    <div class="dream__lead reveal">
+      <p class="lead">Começa numa lista de coisas que vocês queriam: uma cozinha aberta para quem cozinha não ficar sozinho, uma escada que valesse a pena ser olhada, um lugar de sombra na frente da casa e luz entrando a tarde inteira nos quartos.</p>
+    </div>
+
+    <div class="dream__body reveal">
+      <p>Essa lista virou programa. O programa virou planta. A planta virou volume, e o volume ganhou peso, apoio e caminho de carga. Nada aqui é ilustração de intenção: os dois modelos que você vai explorar nesta página são os arquivos executivos do projeto, os mesmos que a obra vai seguir.</p>
+      <p>Da fachada ao último pilar, tudo já existe em coordenadas. Falta apenas o concreto encontrar o terreno.</p>
+    </div>
+
+    <dl class="dream__meta reveal">
+      <div class="meta-item"><dt>Tipologia</dt><dd>Residência unifamiliar</dd></div>
+      <div class="meta-item"><dt>Pavimentos</dt><dd>Térreo e superior</dd></div>
+      <div class="meta-item"><dt>Altura estrutural</dt><dd>+6,75 m</dd></div>
+      <div class="meta-item"><dt>Modelos</dt><dd>Arquitetônico e estrutural</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ================= PLANTAS ================= -->
+<section class="section plans" id="plantas" data-rail="1">
+  <div class="wrap grid">
+    <div style="grid-column:1/-1">
+      <p class="eyebrow">Capítulo dois</p>
+      <h2 style="font-size:var(--t-h2);margin:.9rem 0 0;max-width:16ch">A casa vista <em class="italic">de cima</em></h2>
+    </div>
+
+    <article class="plan plan--a reveal">
+      <figure class="plan__fig" style="margin:0">
+        <img src="./assets/img/render-02.jpg"
+             srcset="./assets/img/render-02-sm.jpg 900w, ./assets/img/render-02-md.jpg 1200w, ./assets/img/render-02.jpg 1536w"
+             sizes="(min-width: 861px) 58vw, 100vw"
+             alt="Vista superior do pavimento térreo mostrando garagem para dois carros, varanda, sala de estar, sala de jantar, cozinha com ilha, área de serviço e uma suíte"
+             loading="lazy" width="1536" height="1024">
+        <figcaption>Térreo &nbsp;/&nbsp; +0,00</figcaption>
+      </figure>
+      <div class="plan__text">
+        <span class="plan__level">Nível +0,00</span>
+        <h3>O andar de receber</h3>
+        <p>A vida coletiva da casa acontece em um único gesto contínuo: da garagem coberta para a varanda, da varanda para a sala, da sala para a mesa e da mesa para a ilha da cozinha. Quem cozinha continua na conversa. Uma suíte no térreo garante que a casa funcione inteira sem subir um degrau.</p>
+        <ul class="plan__list">
+          <li>Garagem 2 vagas</li><li>Varanda</li><li>Estar</li><li>Jantar</li><li>Cozinha com ilha</li><li>Área de serviço</li><li>Suíte</li><li>Lavabo</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="plan plan--b reveal">
+      <figure class="plan__fig" style="margin:0">
+        <img src="./assets/img/render-03.jpg"
+             srcset="./assets/img/render-03-sm.jpg 900w, ./assets/img/render-03-md.jpg 1200w, ./assets/img/render-03.jpg 1536w"
+             sizes="(min-width: 861px) 58vw, 100vw"
+             alt="Vista superior do pavimento superior mostrando três dormitórios, banheiros, closet, escada e a laje de cobertura"
+             loading="lazy" width="1536" height="1024">
+        <figcaption>Superior &nbsp;/&nbsp; +3,50</figcaption>
+      </figure>
+      <div class="plan__text">
+        <span class="plan__level">Nível +3,50</span>
+        <h3>O andar de recolher</h3>
+        <p>Em cima, o silêncio. Os dormitórios se organizam ao redor do vazio da escada, cada um com banho próprio e janela orientada para receber a luz da tarde. A cobertura resolve o resto: sombra sobre a varanda, proteção sobre a garagem e um desenho de volumes que continua limpo visto de qualquer ângulo.</p>
+        <ul class="plan__list">
+          <li>Suíte principal</li><li>Closet</li><li>Dormitórios</li><li>Banhos</li><li>Escada em vazio</li><li>Cobertura</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ================= ARQUITETURA ================= -->
+<section class="section on-dark" id="arquitetura" data-rail="2">
+  <div class="wrap grid">
+    <div class="viewer-head">
+      <div class="viewer-head__title">
+        <p class="eyebrow">Capítulo três</p>
+        <h2>O projeto <em>arquitetônico</em></h2>
+      </div>
+      <dl class="credit viewer-head__note">
+        <dt>Projeto arquitetônico</dt>
+        <dd>Thayanne Meireles</dd>
+        <dt>O que você está vendo</dt>
+        <dd style="font-family:var(--f-body);font-size:.95rem;color:#bdb5a8;line-height:1.6">O modelo executivo completo: paredes, esquadrias, escada, guarda-corpos, lajes e cobertura. Gire, aproxime e explore por dentro</dd>
+      </dl>
+    </div>
+
+    <div style="grid-column:1/-1">
+      <div class="stage" id="stageArq" data-model="./models/arquitetonico.frag" data-id="arquitetonico">
+        <div class="stage__canvas" id="canvasArq"></div>
+
+        <div class="loader" id="loaderArq">
+          <span class="loader__label">Carregando o modelo arquitetônico</span>
+          <span class="loader__pct" id="pctArq">0%</span>
+          <span class="loader__bar"><i id="barArq"></i></span>
+          <p class="loader__hint">São 2,9 MB de geometria otimizada. Na primeira visita leva alguns segundos</p>
+        </div>
+
+        <button class="gate" id="gateArq" type="button"><span>Toque para explorar</span></button>
+
+        <div class="hint">
+          <span>Arraste para girar</span>
+          <span>Botão direito move</span>
+          <span>Rolagem aproxima</span>
+        </div>
+
+        <div class="tools" role="group" aria-label="Controles do modelo arquitetônico">
+          <button class="tool" data-act="in" data-target="arq" aria-label="Aproximar"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg></button>
+          <button class="tool" data-act="out" data-target="arq" aria-label="Afastar"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M8 11h6"/></svg></button>
+          <button class="tool" data-act="orbit" data-target="arq" aria-label="Girar 90 graus"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.4-5.7"/><path d="M20 4v4h-4"/></svg></button>
+          <button class="tool" data-act="top" data-target="arq" aria-label="Ver de cima"><svg viewBox="0 0 24 24"><path d="M12 3l8 5-8 5-8-5 8-5z"/><path d="M4 13l8 5 8-5"/></svg></button>
+          <button class="tool" data-act="reset" data-target="arq" aria-label="Restaurar visualização inicial"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></button>
+          <button class="tool tool--wide" data-act="full" data-target="arq" aria-label="Abrir em tela cheia"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg> Tela cheia</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRANSIÇÃO ================= -->
+<section class="bridge" id="ponte" data-rail="3">
+  <div class="bridge__grid" aria-hidden="true"></div>
+  <div class="bridge__inner">
+    <p class="eyebrow">Capítulo quatro</p>
+    <h2>Agora tire as paredes<br>e olhe o <em>esqueleto</em></h2>
+    <p>Por trás de cada ambiente que você acabou de percorrer existe um sistema que segura tudo isso de pé. Cada pilar tem nome, cada viga tem seção e cada sapata tem carga calculada. É a casa antes do acabamento, no momento em que ela é pura engenharia</p>
+    <div class="bridge__codes" aria-hidden="true">
+      <span>P1</span><span>P7</span><span>P12</span><span>V103</span><span>V107</span><span>L101</span><span>V201</span><span>P18</span><span>L204</span><span>V205</span><span>P24</span><span>L201</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ESTRUTURA ================= -->
+<section class="section on-dark" id="estrutura" data-rail="4">
+  <div class="wrap grid">
+    <div class="viewer-head">
+      <div class="viewer-head__title">
+        <p class="eyebrow">Capítulo cinco</p>
+        <h2>O projeto <em>estrutural</em></h2>
+      </div>
+      <dl class="credit viewer-head__note">
+        <dt>Projeto estrutural</dt>
+        <dd>Engenheiro projetista Valadares</dd>
+        <dt>O que você está vendo</dt>
+        <dd style="font-family:var(--f-body);font-size:.95rem;color:#bdb5a8;line-height:1.6">Concreto armado em três níveis, do bloco de fundação à laje de cobertura. Use os filtros para isolar cada família de elementos</dd>
+      </dl>
+    </div>
+
+    <div style="grid-column:1/-1">
+      <div class="stage" id="stageEst" data-model="./models/estrutural.frag" data-id="estrutural">
+        <div class="stage__canvas" id="canvasEst"></div>
+
+        <div class="loader" id="loaderEst">
+          <span class="loader__label">Carregando o modelo estrutural</span>
+          <span class="loader__pct" id="pctEst">0%</span>
+          <span class="loader__bar"><i id="barEst"></i></span>
+          <p class="loader__hint">Modelo leve, carrega quase instantaneamente</p>
+        </div>
+
+        <button class="gate" id="gateEst" type="button"><span>Toque para explorar</span></button>
+
+        <div class="hint">
+          <span>Arraste para girar</span>
+          <span>Botão direito move</span>
+          <span>Rolagem aproxima</span>
+        </div>
+
+        <div class="tools" role="group" aria-label="Controles do modelo estrutural">
+          <button class="tool" data-act="in" data-target="est" aria-label="Aproximar"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg></button>
+          <button class="tool" data-act="out" data-target="est" aria-label="Afastar"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M8 11h6"/></svg></button>
+          <button class="tool" data-act="orbit" data-target="est" aria-label="Girar 90 graus"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.4-5.7"/><path d="M20 4v4h-4"/></svg></button>
+          <button class="tool" data-act="top" data-target="est" aria-label="Ver de cima"><svg viewBox="0 0 24 24"><path d="M12 3l8 5-8 5-8-5 8-5z"/><path d="M4 13l8 5 8-5"/></svg></button>
+          <button class="tool" data-act="reset" data-target="est" aria-label="Restaurar visualização inicial"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></button>
+          <button class="tool tool--wide" data-act="full" data-target="est" aria-label="Abrir em tela cheia"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg> Tela cheia</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="filters" id="filters" role="group" aria-label="Filtros de elementos estruturais">
+      <button class="filter is-on" data-cat="pilares" aria-pressed="true"><i></i> Pilares <b id="cPilares">48</b></button>
+      <button class="filter is-on" data-cat="vigas" aria-pressed="true"><i></i> Vigas <b id="cVigas">72</b></button>
+      <button class="filter is-on" data-cat="lajes" aria-pressed="true"><i></i> Lajes <b id="cLajes">10</b></button>
+      <button class="filter is-on" data-cat="escadas" aria-pressed="true"><i></i> Escada <b id="cEscadas">2</b></button>
+      <button class="filter is-on" data-cat="fundacoes" aria-pressed="true"><i></i> Fundações <b id="cFundacoes">18</b></button>
+    </div>
+    <p class="filters__note">Níveis do modelo &nbsp;·&nbsp; 00 em +0,00 &nbsp;·&nbsp; 01 em +3,55 &nbsp;·&nbsp; 02 em +6,75</p>
+  </div>
+</section>
+
+<!-- ================= EQUIPE ================= -->
+<section class="section team" id="equipe" data-rail="5">
+  <div class="wrap grid">
+    <div class="team__head">
+      <p class="eyebrow">Capítulo seis</p>
+      <h2>Quem desenhou <em class="italic">esta casa</em></h2>
+    </div>
+
+    <article class="person reveal">
+      <p class="person__role">Projeto arquitetônico</p>
+      <h3 class="person__name">Thayanne Meireles</h3>
+      <p class="person__desc">Responsável pela concepção, pelo partido e pelo detalhamento executivo. É dela a decisão de abrir a cozinha para a sala, de tratar a escada como peça de fachada e de manter a casa em volumes puros e brancos, com a pedra e a madeira aparecendo só onde a mão encosta.</p>
+      <ul class="person__tags"><li>Arquitetura</li><li>Interiores</li><li>Detalhamento executivo</li></ul>
+    </article>
+
+    <article class="person reveal">
+      <p class="person__role">Projeto estrutural</p>
+      <h3 class="person__name">Valadares</h3>
+      <p class="person__desc">Engenheiro projetista responsável pelo cálculo e pelo detalhamento da estrutura em concreto armado. Dimensionou fundações, pilares, vigas e lajes para que a arquitetura chegasse à obra exatamente como foi desenhada, sem pilar no meio da sala e sem viga cortando o vão.</p>
+      <ul class="person__tags"><li>Cálculo estrutural</li><li>Concreto armado</li><li>Compatibilização</li></ul>
+    </article>
+  </div>
+</section>
+
+<!-- ================= FECHAMENTO ================= -->
+<section class="closing" id="fim">
+  <div class="closing__media">
+    <img src="./assets/img/render-01-sm.jpg"
+         srcset="./assets/img/render-01-sm.jpg 900w, ./assets/img/render-01-md.jpg 1200w, ./assets/img/render-01.jpg 1596w"
+         sizes="100vw" alt="" aria-hidden="true" loading="lazy" id="closeImg">
+  </div>
+  <div class="closing__inner">
+    <p class="eyebrow" style="color:var(--stone)">Capítulo final</p>
+    <h2>A casa já existe<br>falta <em>morar</em> nela</h2>
+    <p>Cada linha desta página é um arquivo real, coordenado e pronto para obra. O resto é o tempo passando e vocês dois chegando em casa</p>
+    <a class="btn" href="#inicio">
+      <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      Rever desde o começo
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="foot__grid">
+    <div class="foot__col">
+      <p class="foot__mark">K<em>&amp;</em>T</p>
+      <p style="color:var(--stone);font-size:.92rem;max-width:26ch;margin:0">Residência unifamiliar em dois pavimentos, apresentada em modelos IFC navegáveis</p>
+    </div>
+    <div class="foot__col">
+      <h4>Percurso</h4>
+      <ul>
+        <li><a href="#sonho">O sonho</a></li>
+        <li><a href="#plantas">A casa</a></li>
+        <li><a href="#arquitetura">Projeto arquitetônico</a></li>
+        <li><a href="#estrutura">Projeto estrutural</a></li>
+      </ul>
+    </div>
+    <div class="foot__col">
+      <h4>Projetistas</h4>
+      <ul>
+        <li><a href="#equipe">Thayanne Meireles, arquitetura</a></li>
+        <li><a href="#equipe">Valadares, estrutura</a></li>
+      </ul>
+    </div>
+    <div class="foot__col">
+      <h4>Arquivos originais</h4>
+      <ul>
+        <li><a href="./models/ifc/arquitetonico.ifc" download>IFC arquitetônico</a></li>
+        <li><a href="./models/ifc/estrutural.ifc" download>IFC estrutural</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot__bar">
+    <span>Casa Karina e Tiago &nbsp;·&nbsp; Projeto executivo</span>
+    <span class="foot__sign">Site desenvolvido por <em>Valadares</em></span>
+  </div>
+</footer>
+
+<script src="./assets/js/gsap.js" defer></script>
+<script type="module" src="./assets/js/main.js"></script>
+</body>
+</html>
