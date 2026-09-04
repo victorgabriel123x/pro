@@ -586,12 +586,64 @@ p { margin: 0 0 1.15em; text-wrap: pretty; }
 
 .plans h2 em, .team h2 em { font-style: italic; color: var(--brass-lo); }
 
+/* Base mobile primeiro: tudo ocupa a linha inteira.
+   Sem esta regra o navegador coloca cada bloco em uma coluna de 1/6 da tela */
+.dream__portrait,
+.dream__text { grid-column: 1 / -1; }
+
 @media (min-width: 861px) {
-  .dream__lead { grid-column: 1 / 6; }
-  .dream__body { grid-column: 7 / 12; }
+  .dream__portrait { grid-column: 1 / 5; }
+  .dream__text     { grid-column: 6 / 13; }
 }
 
-.dream__body p:last-child { margin-bottom: 0; }
+.dream__text p:last-child { margin-bottom: 0; }
+.dream__text .lead { margin-bottom: 1.6rem; }
+
+/* Retrato do casal */
+.dream__portrait {
+  margin: 0 0 clamp(2rem, 4vw, 2.6rem);
+  position: relative;
+  align-self: start;
+}
+
+.dream__portrait img {
+  width: 100%;
+  /* height auto é obrigatório: sem ele o atributo height do HTML vence o aspect-ratio */
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 32%;
+  background: var(--bone-2);
+}
+
+@media (min-width: 861px) {
+  .dream__portrait { margin-bottom: 0; }
+  .dream__portrait img { aspect-ratio: 3 / 4; }
+}
+
+.dream__portrait figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .2rem .6rem;
+  margin-top: .9rem;
+  padding-top: .8rem;
+  border-top: 1px solid var(--hair-dark);
+  font-family: var(--f-display);
+  font-size: 1.12rem;
+  line-height: 1.2;
+}
+
+.dream__portrait figcaption em { font-style: italic; color: var(--brass-lo); }
+
+.dream__portrait figcaption span {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--stone-d);
+  margin-left: auto;
+}
 
 .dream__meta {
   grid-column: 1 / -1;
@@ -1052,6 +1104,11 @@ p { margin: 0 0 1.15em; text-wrap: pretty; }
 .filter[data-cat="vigas"]     { --swatch: #b0a89a; }
 .filter[data-cat="escadas"]   { --swatch: #c9a66b; }
 .filter[data-cat="fundacoes"] { --swatch: #7e96a6; }
+
+/* Filtros do arquitetônico usam o acento latão da seção */
+.filters--arq .filter { --swatch: var(--brass); }
+.filters--arq .filter.is-on { border-color: rgba(201, 166, 107, .45); }
+#arquitetura .filters__note { color: var(--brass-lo); }
 
 .filter:hover { color: var(--bone); border-color: rgba(239, 234, 225, .45); }
 

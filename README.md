@@ -110,7 +110,7 @@ Depois abra `http://localhost:8000`.
 
 **Controle no celular** o modelo só captura o toque depois que a pessoa toca nele, então a rolagem da página nunca briga com a rotação do modelo. Tocar fora devolve a rolagem. Todos os botões têm no mínimo 48 por 48 pixels.
 
-**Filtros estruturais** pilares, vigas, lajes, escada e fundações podem ser ligados e desligados individualmente, e as contagens ao lado de cada filtro são lidas do próprio modelo.
+**Filtros nos dois modelos** no arquitetônico dá para desligar cobertura, paredes, esquadrias, pisos, escada e mobiliário, o que permite abrir a casa e olhar por dentro. No estrutural, pilares, vigas, lajes, escada e fundações. As contagens ao lado de cada filtro são lidas do próprio modelo na hora do carregamento, não digitadas à mão.
 
 **Tipografia** Bodoni Moda para os títulos, Jost para o texto e IBM Plex Mono para as cotas e etiquetas técnicas, carregadas do Google Fonts com fallbacks locais definidos no CSS.
 

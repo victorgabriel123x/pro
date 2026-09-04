@@ -199,14 +199,42 @@ function animate() {
     });
   });
 
-  gsap.from(".filter", {
-    opacity: 0, y: 14, duration: .7, stagger: .06, ease: "power3.out",
-    scrollTrigger: { trigger: "#filters", start: "top 92%" },
+  /* Cada grupo de filtros anima com o próprio gatilho.
+     Um gatilho único deixaria os chips do arquitetônico invisíveis
+     até a pessoa chegar na seção estrutural */
+  $$(".filters").forEach((group) => {
+    gsap.from(group.querySelectorAll(".filter"), {
+      opacity: 0, y: 14, duration: .7, stagger: .06, ease: "power3.out",
+      scrollTrigger: { trigger: group, start: "top 94%" },
+    });
   });
 }
 
-if (document.readyState === "complete") animate();
-else window.addEventListener("load", animate);
+/* Rede de segurança: um salto instantâneo, como abrir o site já com âncora
+   na URL, pode passar por cima de um gatilho e deixar o bloco invisível.
+   Aqui qualquer coisa que já esteja na tela e ainda esteja apagada acende */
+function acenderOQueFicouParaTras() {
+  const ST = window.ScrollTrigger;
+  if (ST) ST.refresh();
+  $$(".reveal, .reveal-fast, .filter").forEach((el) => {
+    if (parseFloat(getComputedStyle(el).opacity) > 0.02) return;
+    const r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight * 1.1) {
+      el.style.opacity = 1;
+      el.style.transform = "none";
+    }
+  });
+}
+
+function iniciar() {
+  animate();
+  setTimeout(acenderOQueFicouParaTras, 900);
+}
+
+if (document.readyState === "complete") iniciar();
+else window.addEventListener("load", iniciar);
+
+window.addEventListener("hashchange", () => setTimeout(acenderOQueFicouParaTras, 700));
 
 /* -------------------------------------------------------------------------
    Visualizadores
@@ -327,6 +355,7 @@ const lazy = new IntersectionObserver((entries, obs) => {
         background: 0x1c1915,
         ambient: 0xfff4e2,
         frameTightness: 1.04,
+        after: (v) => countInto(v, COUNT_ARQ),
       });
     } else {
       await boot("est", uiEst, {
@@ -407,13 +436,34 @@ document.addEventListener("keydown", (e) => {
    Filtros de categoria do modelo estrutural
    ------------------------------------------------------------------------- */
 
-const COUNT_NODES = {
+const COUNT_EST = {
   pilares: "#cPilares",
   vigas: "#cVigas",
   lajes: "#cLajes",
   escadas: "#cEscadas",
   fundacoes: "#cFundacoes",
 };
+
+const COUNT_ARQ = {
+  cobertura: "#aCobertura",
+  paredes: "#aParedes",
+  esquadrias: "#aEsquadrias",
+  pisos: "#aPisos",
+  escada: "#aEscada",
+  mobiliario: "#aMobiliario",
+};
+
+/* Lê do próprio modelo quantos elementos existem em cada categoria */
+async function countInto(v, map) {
+  for (const [cat, sel] of Object.entries(map)) {
+    try {
+      const n = await v.categoryCount(cat);
+      const node = $(sel);
+      if (node && n) node.textContent = String(n);
+      else if (node && !n) node.closest(".filter")?.remove();
+    } catch { /* mantém o valor do modelo */ }
+  }
+}
 
 /* Paleta de concreto: o modelo do Eberick sai com cores de software,
    aqui ele vira uma maquete física em tons de concreto e aço */
@@ -427,18 +477,12 @@ const CONCRETE = {
 
 async function refreshCounts(v) {
   try { await v.paint(CONCRETE); } catch (e) { console.warn("paleta", e); }
-  for (const [cat, sel] of Object.entries(COUNT_NODES)) {
-    try {
-      const n = await v.categoryCount(cat);
-      const node = $(sel);
-      if (node && n) node.textContent = String(n);
-    } catch { /* mantém o valor do modelo */ }
-  }
+  await countInto(v, COUNT_EST);
 }
 
 $$(".filter").forEach((btn) => {
   btn.addEventListener("click", async () => {
-    const v = viewers.est;
+    const v = viewers[btn.dataset.target || "est"];
     if (!v) return;
     const cat = btn.dataset.cat;
     const on = !btn.classList.contains("is-on");

@@ -1,0 +1,15 @@
+# Renders originais em PNG, já convertidos para JPEG em assets/img
+ChatGPT Image*.png
+originais/
+
+# Placeholders não usados
+assets/img/*-blur.jpg
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+node_modules/
+
+# Anotações internas
+CLAUDE.md

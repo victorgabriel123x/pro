@@ -118,11 +118,17 @@
       <h2 class="dream__quote">Toda casa começa muito antes<br>do primeiro <em>traço</em></h2>
     </div>
 
-    <div class="dream__lead reveal">
-      <p class="lead">Começa numa lista de coisas que vocês queriam: uma cozinha aberta para quem cozinha não ficar sozinho, uma escada que valesse a pena ser olhada, um lugar de sombra na frente da casa e luz entrando a tarde inteira nos quartos.</p>
-    </div>
+    <figure class="dream__portrait reveal">
+      <img src="./assets/img/casal.jpg"
+           srcset="./assets/img/casal-sm.jpg 640w, ./assets/img/casal.jpg 1100w"
+           sizes="(min-width: 861px) 32vw, 100vw"
+           alt="Karina e Tiago juntos, sorrindo"
+           loading="lazy" width="1100" height="1467">
+      <figcaption>Karina <em>e</em> Tiago <span>Os donos da casa</span></figcaption>
+    </figure>
 
-    <div class="dream__body reveal">
+    <div class="dream__text reveal">
+      <p class="lead">Começa numa lista de coisas que vocês queriam: uma cozinha aberta para quem cozinha não ficar sozinho, uma escada que valesse a pena ser olhada, um lugar de sombra na frente da casa e luz entrando a tarde inteira nos quartos.</p>
       <p>Essa lista virou programa. O programa virou planta. A planta virou volume, e o volume ganhou peso, apoio e caminho de carga. Nada aqui é ilustração de intenção: os dois modelos que você vai explorar nesta página são os arquivos executivos do projeto, os mesmos que a obra vai seguir.</p>
       <p>Da fachada ao último pilar, tudo já existe em coordenadas. Falta apenas o concreto encontrar o terreno.</p>
     </div>
@@ -229,6 +235,16 @@
         </div>
       </div>
     </div>
+
+    <div class="filters filters--arq" id="filtersArq" role="group" aria-label="Filtros de elementos arquitetônicos">
+      <button class="filter is-on" data-cat="cobertura" data-target="arq" aria-pressed="true"><i></i> Cobertura <b id="aCobertura">8</b></button>
+      <button class="filter is-on" data-cat="paredes" data-target="arq" aria-pressed="true"><i></i> Paredes <b id="aParedes">98</b></button>
+      <button class="filter is-on" data-cat="esquadrias" data-target="arq" aria-pressed="true"><i></i> Esquadrias <b id="aEsquadrias">28</b></button>
+      <button class="filter is-on" data-cat="pisos" data-target="arq" aria-pressed="true"><i></i> Pisos <b id="aPisos">47</b></button>
+      <button class="filter is-on" data-cat="escada" data-target="arq" aria-pressed="true"><i></i> Escada <b id="aEscada">9</b></button>
+      <button class="filter is-on" data-cat="mobiliario" data-target="arq" aria-pressed="true"><i></i> Mobiliário <b id="aMobiliario">18</b></button>
+    </div>
+    <p class="filters__note">Desligue a cobertura para ver a casa por dentro</p>
   </div>
 </section>
 
